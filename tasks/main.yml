@@ -22,6 +22,7 @@
     volumes_from: >-
       {{ [datastore_container_name] if use_datastore_container else omit }}
     exposed_ports: "{{ ['%s:5432' % expose_host_port] if expose_host_port else omit }}"
+    published_ports: "{{ ['%s:5432' % expose_host_port] if expose_host_port and publish_host_port else omit }}"
 
 - name: inspect postgres docker
   command: >

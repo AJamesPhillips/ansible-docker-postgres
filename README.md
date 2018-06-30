@@ -36,6 +36,10 @@ postgres_docker_env: []
 # Optional, the port to expose postgresql to the host.
 # Default not expose postgresql to the host.
 expose_host_port: 0
+
+# Optional, publish the port that is exposed
+# Default to not publish
+publish_host_port: false
 ```
 
 Dependencies
@@ -53,6 +57,7 @@ Example Playbook
       datastore_container_name: dbstore
       postgres_container_name: postgres
       expose_host_port: 5432
+      publish_host_port: true
       postgres_docker_tag: 9.5
       postgres_docker_env:
         POSTGRES_PASSWORD: pg_admin_pw
